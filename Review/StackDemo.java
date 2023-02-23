@@ -62,7 +62,7 @@ class DynamicStack implements Stack {
     }
 }
 
-public class Day3_3 {
+public class StackDemo {
     public static void main(String[] args) {
         FixedStack fs = new FixedStack(6);
         DynamicStack ds = new DynamicStack(5);

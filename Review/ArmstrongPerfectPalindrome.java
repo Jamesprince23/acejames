@@ -2,7 +2,7 @@ package review;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Day1_15b {
+public class ArmstrongPerfectPalindrome {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int n;
@@ -10,10 +10,13 @@ public class Day1_15b {
 		n = sc.nextInt();
 		if(armstrong(n)==1)
 			System.out.println("It is an armstrong number.");
-		if(perfectNo(n)==1)
+		else if(perfectNo(n)==1)
 			System.out.println("It is a perfect number.");
-		if(palindrome(n)==1)
+		else if(palindrome(n)==1)
 			System.out.println("It is a palindrome.");
+		else {
+			System.out.println("none of these");
+		}
 	}
 	
 	public static int armstrong(int n) {

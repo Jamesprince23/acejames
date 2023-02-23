@@ -16,7 +16,7 @@ class C extends A {
     B obj = new B();
 }
 
-public class Day2_10 {
+public class ConstructorDemo {
     public static void main(String[] args) {
         C object = new C();
     }

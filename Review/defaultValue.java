@@ -1,6 +1,6 @@
 package review;
 
-public class Day1_2 {
+public class defaultValue {
 	static byte b;
 	static short s;
 	static int i;

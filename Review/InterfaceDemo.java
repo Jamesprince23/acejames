@@ -113,7 +113,7 @@ class Cuboid implements CalcArea, CalcVolume {
     }
 }
 
-public class Day3_2 {
+public class InterfaceDemo {
     public static void main(String[] args) {
         Circle c = new Circle(5.0);
         System.out.println("Circle area: " + c.area());

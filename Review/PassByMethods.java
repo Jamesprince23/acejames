@@ -2,7 +2,7 @@ package review;
 
 import java.util.Arrays;
 
-public class Day2_1 {
+public class PassByMethods {
     
     public static void main(String[] args) {
         int n = 2;

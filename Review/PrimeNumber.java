@@ -1,6 +1,6 @@
 package review;
 
-public class Day1_exp15a {
+public class PrimeNumber {
 	public static void main(String[] args) {
 		for(int i=2; i<=100; i++)
 			primeOrNot(i);

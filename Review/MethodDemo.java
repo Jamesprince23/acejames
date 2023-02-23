@@ -29,12 +29,12 @@ class Exam extends Student {
 
 class Result extends Exam {
     public int totalMark() {
-        int res = this.m1 + this.m2 + this.m3;
+        int res = m1 + m2 + m3;
         return res;
     }
 }
 
-public class Day2_14 {
+public class MethodDemo {
     public static void main(String[] args) {
         Result ex = new Result();
         ex.setDetails("Jegan", 80);

@@ -4,7 +4,7 @@ class SingletonExample {
 
     private SingletonExample() {}
 
-    public static SingletonExample get() {
+    public static SingletonExample createInstance() {
         if(s == null)
             s = new SingletonExample();
         return s;
@@ -15,9 +15,9 @@ class SingletonExample {
     }
 }
 
-public class Day2_8 {
+public class SingletonDemo {
     public static void main(String[] args) {
-        SingletonExample s = SingletonExample.get();
+        SingletonExample s = SingletonExample.createInstance();
         s.TestPrint();
     }
 }
