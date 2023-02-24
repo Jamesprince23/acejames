@@ -10,7 +10,7 @@ class SingletonExample {
         return s;
     }
     
-    public void TestPrint() {
+    public void testPrint() {
         System.out.println("In singleton class.");
     }
 }
@@ -18,6 +18,6 @@ class SingletonExample {
 public class SingletonDemo {
     public static void main(String[] args) {
         SingletonExample s = SingletonExample.createInstance();
-        s.TestPrint();
+        s.testPrint();
     }
 }
