@@ -20,7 +20,8 @@ public class StudentAvg {
             } catch(NumberFormatException e) {
                 System.out.println(e);
                 break James;
-            }
+            }catch(Exception e) {
+            	System.out.println(e);}
         }
         
     }

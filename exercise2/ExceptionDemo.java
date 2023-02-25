@@ -9,7 +9,8 @@ public class ExceptionDemo {
 	public void mth2() {
 		try
 		{
-			return;
+			int a=1/0;
+			return ;
 		}
 		catch(Exception e) {
 			System.out.println("catch-mth2");

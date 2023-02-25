@@ -30,6 +30,9 @@ public class ExceptionDemo6 {
             } catch(OutOfMarksRangeException e) {
                 System.out.println(e);
                 break BACK;
+            }catch(Exception e) {
+            	System.out.println(e);
+            	break ;
             }
         }
         sc.close();
