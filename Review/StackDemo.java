@@ -1,5 +1,7 @@
 package review;
 
+import java.util.Scanner;
+
 interface Stack {
     void push(int data);
     int pop();
@@ -36,15 +38,17 @@ class FixedStack implements Stack {
 class DynamicStack implements Stack {
     int[] stack;
     int top;
+    int x;
 
-    public DynamicStack(int size) {
+    public DynamicStack(int size,int x) {
         stack = new int[size];
         top = -1;
+        this.x=x;
     }
 
     public void push(int value) {
         if (top == stack.length - 1) {
-            int[] newStack = new int[stack.length * 2];
+            int[] newStack = new int[stack.length +x];
             for (int i = 0; i <= top; i++) {
                 newStack[i] = stack[i];
             }
@@ -64,8 +68,13 @@ class DynamicStack implements Stack {
 
 public class StackDemo {
     public static void main(String[] args) {
+    	  System.out.println("Enter the size of the dynamic array to be added");
+          Scanner sc=new Scanner(System.in);
+          int x;
+          x=sc.nextInt();
         FixedStack fs = new FixedStack(6);
-        DynamicStack ds = new DynamicStack(5);
+        DynamicStack ds = new DynamicStack(5,x);
+      
 
         for (int i = 1; i <= 6; i++) {
             fs.push(i);
