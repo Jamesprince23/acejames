@@ -6,15 +6,15 @@ import java.util.concurrent.Executors;
 public class SynchronizedAccess {
 	public static void main(String[] args) {
 		ExecutorService es=Executors.newFixedThreadPool(2);
-		Show d=new Show();
+		Show show=new Show();
 		es.execute(()->{
-			d.Show("[-----");
+			show.Show("[-----");
 		});
 		es.execute(()->{
-			d.Show("Message");
+			show.Show("Message");
 		});
 		es.execute(()->{
-			d.Show("-----]");
+			show.Show("-----]");
 		});
 		es.shutdown();
 		

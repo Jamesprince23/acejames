@@ -7,50 +7,52 @@ import java.util.concurrent.Executors;
 
 public class DigitalClock {
 	public static void main(String[] args) {
-		Clock c=new Clock();
-		ExecutorService es=Executors.newFixedThreadPool(3);
-		es.execute(()->{
-			c.hours();
+		Clock clock=new Clock();
+		ExecutorService executorService=Executors.newFixedThreadPool(3);
+		executorService.execute(()->{
+			clock.hours();
 			
 		});
-		es.execute(()->{
-			c.mins();
+		executorService.execute(()->{
+			clock.minutes();
 		});
-		es.execute(()->{
-			c.secs();
+		executorService.execute(()->{
+			clock.seconds();
 		});
-		es.shutdown();
+		executorService.shutdown();
 		}
 
 }
 class Clock{
-	int hrs;
-	int min;
-	int sec;
+	int hour;
+	int minute;
+	int second;
 	
 	void hours() {
 		while(true) {
-			Date d=new Date();
-			hrs=d.getHours();
+			Date date=new Date();
+			hour=date.getHours();
 			
 		}
 		
 	}
-	void mins() {
+	void minutes() {
 		while(true) {
-			Date d=new Date();
-			min=d.getMinutes();
+			Date date=new Date();
+			minute=date.getMinutes();
 		}
 		
 	}
-	void secs() {
+	void seconds() {
 		while(true) {
-			Date d=new Date();
-			sec=d.getSeconds();
+			Date date=new Date();
+			second=date.getSeconds();
 			try {
 				Thread.sleep(1000);
-			}catch(Exception e) {}
-			System.out.println(hrs+":"+min+":"+sec);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println(hour+":"+minute+":"+second);
 			}
 		}
 	

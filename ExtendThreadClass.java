@@ -1,31 +1,31 @@
 package day5;
 public class ExtendThreadClass {
 	public static void main(String[] args) {
-		StringBuffer sb=new StringBuffer("A");
-		Threads t1=new Threads(sb);
-		Threads t2=new Threads(sb);
-		Threads t3=new Threads(sb);
-		t1.start();
-		t2.start();
-		t3.start();		
+		StringBuffer stringBuffer=new StringBuffer("A");
+		Threads thread1=new Threads(stringBuffer);
+		Threads thread2=new Threads(stringBuffer);
+		Threads thread3=new Threads(stringBuffer);
+		thread1.start();
+		thread2.start();
+		thread3.start();		
 	}
 	
 }
 class Threads extends Thread{
-	StringBuffer sbr;
-	Threads(StringBuffer sbr){
-		this.sbr=sbr;
+	StringBuffer stringbuffer1;
+	Threads(StringBuffer stringbuffer1){
+		this.stringbuffer1=stringbuffer1;
 	}
 	@Override
 	public void run() {
-		synchronized(sbr) {
+		synchronized(stringbuffer1) {
 			for(int i =1;i<=100;i++) {
-				System.out.print(sbr+" ");
+				System.out.print(stringbuffer1+" ");
 			}
 			System.out.println();
-			int v=sbr.charAt(0);
+			int v=stringbuffer1.charAt(0);
 			v++;
-			sbr.replace(0, 1, (char)v+"");
+			stringbuffer1.replace(0, 1, (char)v+"");
 			
 		}
 	}

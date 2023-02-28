@@ -6,24 +6,28 @@ import java.util.concurrent.Executors;
 public class OddEven {
 	public static void main(String[] args) {
 		
-		ExecutorService es=Executors.newFixedThreadPool(2);
-		es.execute(() -> {
+		ExecutorService executorService=Executors.newFixedThreadPool(2);
+		executorService.execute(() -> {
 			
-			for(int i=1;i<100;i=i+2){
+			for(int i=1 ; i<100 ; i=i+2){
 				System.out.println(i);
 				try {
 					Thread.sleep(100);}
-				catch(Exception e) {}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
 				}
 				});
-		es.execute(()->{
-			for(int i=2;i<=100;i=i+2) {
+		executorService.execute(()->{
+			for(int i=2 ; i<=100 ; i=i+2) {
 				System.out.println(i);
 				try{Thread.sleep(100);}
-				catch(Exception e) {}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
 			}
 			});
-		es.shutdown();
+		executorService.shutdown();
 
 	}
 
