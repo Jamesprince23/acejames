@@ -10,14 +10,14 @@ public class DigitalClock {
 		Clock clock=new Clock();
 		ExecutorService executorService=Executors.newFixedThreadPool(3);
 		executorService.execute(()->{
-			clock.hours();
+			clock.getHours();
 			
 		});
 		executorService.execute(()->{
-			clock.minutes();
+			clock.getMinutes();
 		});
 		executorService.execute(()->{
-			clock.seconds();
+			clock.getSeconds();
 		});
 		executorService.shutdown();
 		}
@@ -28,23 +28,29 @@ class Clock{
 	int minute;
 	int second;
 	
-	void hours() {
-		while(true) {
+	void getHours()
+	{
+		while(true)
+		{
 			Date date=new Date();
 			hour=date.getHours();
 			
 		}
 		
 	}
-	void minutes() {
-		while(true) {
+	void getMinutes()
+	{
+		while(true)
+		{
 			Date date=new Date();
 			minute=date.getMinutes();
 		}
 		
 	}
-	void seconds() {
-		while(true) {
+	void getSeconds()
+	{
+		while(true)
+		{
 			Date date=new Date();
 			second=date.getSeconds();
 			try {

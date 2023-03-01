@@ -5,24 +5,25 @@ import java.util.concurrent.Executors;
 
 public class SynchronizedAccess {
 	public static void main(String[] args) {
-		ExecutorService es=Executors.newFixedThreadPool(2);
-		Show show=new Show();
-		es.execute(()->{
-			show.Show("[-----");
+		ExecutorService es = Executors.newFixedThreadPool(2);
+		Show show = new Show();
+		es.execute(() -> {
+			show.print("[-----");
 		});
-		es.execute(()->{
-			show.Show("Message");
+		es.execute(() -> {
+			show.print("Message");
 		});
-		es.execute(()->{
-			show.Show("-----]");
+		es.execute(() -> {
+			show.print("-----]");
 		});
 		es.shutdown();
-		
+
 	}
 
 }
-class Show{
-	void Show(String s) {
+
+class Show {
+	synchronized void print(String s) {
 		System.out.print(s);
 	}
 }
