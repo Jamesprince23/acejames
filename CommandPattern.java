@@ -1,73 +1,80 @@
 package exercise4;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommandPattern {
 	public static void main(String[] args) {
-	
-	 Item biscuittem = new Item();
 
-     BuyItem buyItemOrder = new BuyItem(biscuittem);
-     SellItem sellItemOrder = new SellItem(biscuittem);
+		Item biscuittem = new Item();
 
-     Broker broker = new Broker();
-     broker.takeOrder(buyItemOrder);
-     broker.takeOrder(sellItemOrder);
+		BuyItem buyItemOrder = new BuyItem(biscuittem);
+		SellItem sellItemOrder = new SellItem(biscuittem);
 
-     broker.placeOrders();
+		Broker broker = new Broker();
+		broker.takeOrder(buyItemOrder);
+		broker.takeOrder(sellItemOrder);
+
+		broker.placeOrders();
+	}
+
 }
-	
-	}
+
 interface Order {
-	   void execute();
+	void execute();
+}
+
+class Item {
+
+	private String name = "Biscuit";
+	private int quantity = 21;
+
+	public void buy() {
+		System.out.println("Item [ Name: " + name + ", Quantity: " + quantity + " ] bought");
 	}
- class Item {
 
-	   private String name = "Biscuit";
-	   private int quantity = 21;
-
-	   public void buy(){
-	      System.out.println("Item [ Name: "+name+", Quantity: " + quantity +" ] bought");
-	   }
-	   public void sell(){
-	      System.out.println("Item [ Name: "+name+", Quantity: " + quantity +" ] sold");
-	   }
+	public void sell() {
+		System.out.println("Item [ Name: " + name + ", Quantity: " + quantity + " ] sold");
 	}
-  class BuyItem implements Order {
-	   private Item biscuittem;
+}
 
-	   public BuyItem(Item biscuittem){
-	      this.biscuittem = biscuittem;
-	   }
+class BuyItem implements Order {
+	private Item biscuittem;
 
-	   public void execute() {
-	      biscuittem.buy();
-	   }
+	public BuyItem(Item biscuittem) {
+		this.biscuittem = biscuittem;
 	}
+
+	public void execute() {
+		biscuittem.buy();
+	}
+}
 
 class SellItem implements Order {
-	   private Item biscuittem;
+	private Item biscuittem;
 
-	   public SellItem(Item biscuittem){
-	      this.biscuittem = biscuittem;
-	   }
-
-	   public void execute() {
-	      biscuittem.sell();
-	   }
+	public SellItem(Item biscuittem) {
+		this.biscuittem = biscuittem;
 	}
- class Broker {
 
-	   private List<Order> orderList = new ArrayList<Order>(); 
-	   public void takeOrder(Order order){
-	      orderList.add(order);		
-	   }
-
-	   public void placeOrders(){
-	   
-	      for (Order order : orderList) {
-	         order.execute();
-	      }
-	      orderList.clear();
-	   }
+	public void execute() {
+		biscuittem.sell();
 	}
+}
+
+class Broker {
+
+	private List<Order> orderList = new ArrayList<Order>();
+
+	public void takeOrder(Order order) {
+		orderList.add(order);
+	}
+
+	public void placeOrders() {
+
+		for (Order order : orderList) {
+			order.execute();
+		}
+		orderList.clear();
+	}
+}
