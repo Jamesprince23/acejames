@@ -2,19 +2,19 @@ package exercise4;
 
 public class Singleton {
 	public static void main(String[] args) {
-		Computer single = Computer.getInstance();
-		Computer obj2 = single;
+		Computer singleComputer = Computer.getInstance();
+		Computer object2 = singleComputer;
 	}
 }
 
 class Computer {
-	static Computer obj = new Computer();
+	static Computer object = new Computer();
 
 	private Computer() {
 
 	}
 
 	public static Computer getInstance() {
-		return obj;
+		return object;
 	}
 }

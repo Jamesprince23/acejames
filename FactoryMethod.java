@@ -36,10 +36,17 @@ class Jawa implements Bike {
 class BikeFactory {
 	public Bike getInstance(String str) {
 		if (str.equals("Affordable"))
+		{
 			return new Splender();
+		}
 		else if (str.equals("Vintage"))
+		{
 			return new Bullet();
+		}
 		else
+		{	
+		
 			return new Jawa();
+		}
 	}
 }

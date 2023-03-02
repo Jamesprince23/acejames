@@ -6,10 +6,10 @@ import java.util.List;
 public class CommandPattern {
 	public static void main(String[] args) {
 
-		Item biscuittem = new Item();
+		Item biscuitItem = new Item();
 
-		BuyItem buyItemOrder = new BuyItem(biscuittem);
-		SellItem sellItemOrder = new SellItem(biscuittem);
+		BuyItem buyItemOrder = new BuyItem(biscuitItem);
+		SellItem sellItemOrder = new SellItem(biscuitItem);
 
 		Broker broker = new Broker();
 		broker.takeOrder(buyItemOrder);
@@ -39,26 +39,26 @@ class Item {
 }
 
 class BuyItem implements Order {
-	private Item biscuittem;
+	private Item biscuitItem;
 
-	public BuyItem(Item biscuittem) {
-		this.biscuittem = biscuittem;
+	public BuyItem(Item biscuitItem) {
+		this.biscuitItem = biscuitItem;
 	}
 
 	public void execute() {
-		biscuittem.buy();
+		biscuitItem.buy();
 	}
 }
 
 class SellItem implements Order {
-	private Item biscuittem;
+	private Item biscuitItem;
 
-	public SellItem(Item biscuittem) {
-		this.biscuittem = biscuittem;
+	public SellItem(Item biscuitItem) {
+		this.biscuitItem = biscuitItem;
 	}
 
 	public void execute() {
-		biscuittem.sell();
+		biscuitItem.sell();
 	}
 }
 

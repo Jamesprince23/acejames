@@ -3,7 +3,7 @@ package exercise4;
 import java.util.Scanner;
 
 public class VisitorPattern {
-	public static void main(String[] args) throws BikesExceptions {
+	public static void main(String[] args) throws BikesException {
 		Human human = new Human();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter the item:");
@@ -18,7 +18,7 @@ class Human {
 	public void rideOnRoad(Bikes Bikes, String item) {
 		try {
 			Bikes.ride(item);
-		} catch (BikesExceptions be) {
+		} catch (BikesException be) {
 			System.out.println(be);
 			be.visit();
 		}
@@ -26,7 +26,7 @@ class Human {
 }
 
 class Bikes {
-	public void ride(String item) throws BikesExceptions {
+	public void ride(String item) throws BikesException {
 		if (item.equals("Brake")) {
 			throw new BikesBrakeException("Apply Brake, else danger");
 		} else if (item.equals("wheel")) {
@@ -38,35 +38,35 @@ class Bikes {
 }
 
 abstract class Map {
-	public abstract void handle(BikesBrakeException bbe);
+	public abstract void handle(BikesBrakeException bikesBrakeException);
 
-	public abstract void handle(BikesWheelException dwe);
+	public abstract void handle(BikesWheelException bikesWheelException);
 
-	public abstract void handle(BikesPetrolException bpe);
+	public abstract void handle(BikesPetrolException bikesPetrolException);
 }
 
 class Phone extends Map {
 	@Override
-	public void handle(BikesBrakeException bbe) {
+	public void handle(BikesBrakeException bikesBrakeException) {
 		System.out.println("Brakes are very important");
 	}
 
 	@Override
-	public void handle(BikesWheelException dwe) {
+	public void handle(BikesWheelException bikesWheelException) {
 		System.out.println("Take the Bikes to the nearby bunk");
 	}
 
 	@Override
-	public void handle(BikesPetrolException bpe) {
+	public void handle(BikesPetrolException bikesPetrolException) {
 		System.out.println("Have fun, be careful");
 	}
 }
 
-abstract class BikesExceptions extends Exception {
+abstract class BikesException extends Exception {
 	public abstract void visit();
 }
 
-class BikesBrakeException extends BikesExceptions {
+class BikesBrakeException extends BikesException {
 	String msg;
 
 	public BikesBrakeException(String msg) {
@@ -85,7 +85,7 @@ class BikesBrakeException extends BikesExceptions {
 	}
 }
 
-class BikesWheelException extends BikesExceptions {
+class BikesWheelException extends BikesException {
 	String msg;
 
 	public BikesWheelException(String msg) {
@@ -104,7 +104,7 @@ class BikesWheelException extends BikesExceptions {
 	}
 }
 
-class BikesPetrolException extends BikesExceptions {
+class BikesPetrolException extends BikesException {
 	String msg;
 
 	public BikesPetrolException(String msg) {
